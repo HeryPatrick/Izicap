@@ -1,17 +1,19 @@
 pipeline {
-    agent any
-
+    agent {
+        docker { image 'jenkins/jenkins:lts' }
+    }
     stages {
+        stage('Test') {
+            steps {
+                sh 'jenkins --version'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
+
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
