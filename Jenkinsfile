@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker { 
             image 'jenkins/jenkins:lts' 
-            -p 8080:8080
+            args '-p 8080:8080'
         }
     }
     stages {
