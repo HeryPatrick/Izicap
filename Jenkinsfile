@@ -1,14 +1,14 @@
 pipeline {
     agent {
         docker { 
-            image 'jenkins/jenkins:lts' 
-            args '-p 8088:8088'
+            image 'nginx:latest' 
+            args '-p 80:80'
         }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'jenkins --version'
+                sh 'cat /etc/nginx/conf.d/default.conf'
             }
         }
     }
