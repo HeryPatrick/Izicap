@@ -1,14 +1,11 @@
 pipeline {
     agent {
-        docker { 
-            image 'demo-token:latest' 
-            args '-p 80:8080'
-        }
+        docker { image 'node:16.13.1-alpine' }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'dir'
+                sh 'node --version'
             }
         }
     }
