@@ -1,8 +1,8 @@
 pipeline {
     agent {
         docker { 
-            image 'jenkins/jenkins:lts' 
-            args '-p 8080:8080'
+            image 'demo-token:latest' 
+            args '-p 80:8080'
         }
     }
     stages {
