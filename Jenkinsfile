@@ -1,12 +1,26 @@
 pipeline {
-    agent {
-        docker { image 'node:16.13.1-alpine' }
-    }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'node --version'
-            }
-        }
-    }
+	agent any
+	stages {
+		stage('Cloning Git') {
+		  steps {
+			git 'https://bitbucket.org/Izicap/demo-token.git'
+		  }
+		}
+		stage('Docker Build') {
+			agent any
+			steps {
+				script{
+					sh 'docker build -t token-docker .'
+				}
+			}
+		}	
+		stage('Docker Run') {
+			agent any
+			steps {
+				script{
+					sh 'docker run -d -p 80:8080 token-docker-build'
+				}
+			}
+		}
+	}
 }
