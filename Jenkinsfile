@@ -9,7 +9,7 @@ pipeline {
 		stage('Docker Build') {
 			steps {
 				script{
-					sh 'docker build -t token-docker .'
+					sh 'docker build -f .\DOCKERFILE .'
 				}
 			}
 		}	
