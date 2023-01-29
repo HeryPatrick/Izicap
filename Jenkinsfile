@@ -17,7 +17,7 @@ pipeline {
 			agent any
 			steps {
 				script{
-					sh 'docker run -d -p 80:8080 token-docker-build'
+					sh 'docker run -d -p 80:8080 token-docker'
 				}
 			}
 		}
