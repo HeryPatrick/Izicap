@@ -11,8 +11,11 @@ RUN mvn clean package
 # Second stage: minimal runtime environment
 FROM openjdk:8-jre-alpine
 
-# copy jar from the first stage
+
+# Affichage contenu
 RUN ls -l
+
+# copy jar from the first stage
 COPY --from=builder target/demo-token-1.0-SNAPSHOT.jar demo-token-1.0-SNAPSHOT.jar
 
 EXPOSE 80
