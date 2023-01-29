@@ -1,10 +1,6 @@
 pipeline {
 	agent any
 	stages {
-		 stage('Initialize'){
-			def dockerHome = tool 'myDocker'
-			env.PATH = "${dockerHome}/bin:${env.PATH}"
-		}
 		stage('Cloning Git') {
 		  steps {
 			git 'https://bitbucket.org/Izicap/demo-token.git'
@@ -16,6 +12,14 @@ pipeline {
 					sh 'docker build -t token-docker .'
 				}
 			}
-		}		
+		}	
+		stage('Docker Run') {
+			agent any
+			steps {
+				script{
+					sh 'docker run -d -p 80:8080 token-docker-build'
+				}
+			}
+		}
 	}
 }
