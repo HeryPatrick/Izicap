@@ -12,7 +12,7 @@ RUN mvn clean package
 FROM openjdk:8-jre-alpine
 
 # copy jar from the first stage
-COPY --from=builder target/demo-token-1.0-SNAPSHOT.jar demo-token-1.0-SNAPSHOT.jar
+COPY --from=builder target/*.jar demo-token-1.0-SNAPSHOT.jar
 
 EXPOSE 80
 
