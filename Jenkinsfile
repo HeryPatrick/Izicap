@@ -8,7 +8,7 @@ pipeline {
 		skipDefaultCheckout(true)
     	}
 	stages {
-		stage('Cloning Git') {
+		stage('Cloning Git Token') {
 			steps {
 				// Clean before build
                 		cleanWs()
@@ -32,7 +32,7 @@ pipeline {
 				}
 			}
 		}
-		stage('Cloning Git') {
+		stage('Cloning Git Postman script') {
 			steps {
 				git 'https://github.com/HeryPatrick/test-postman.git'
 			}
@@ -42,7 +42,7 @@ pipeline {
 			sh 'npm install'
 		    }
 		}
-		stage('Run api') {
+		stage('Run test Postman script ') {
 			steps {
 				script{
 					sh 'npm run api-tests-production'
