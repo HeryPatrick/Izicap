@@ -58,7 +58,7 @@ pipeline {
 				disableDeferredWipeout: true,
 				notFailBuild: true,
 				patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-						   [pattern: '.propsfile', type: 'EXCLUDE']])
+					[pattern: '.propsfile', type: 'EXCLUDE']])
         }
     }
 }
