@@ -28,7 +28,7 @@ pipeline {
 		stage('Docker Run') {
 			steps {
 				script{
-					sh 'docker run --name testCollection --network=mon-bridge -d -p 80:8080 token-docker'
+					sh 'docker run --name testCollection --network=token-bridge -d -p 80:8080 token-docker'
 				}
 			}
 		}
