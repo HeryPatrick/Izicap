@@ -28,7 +28,7 @@ pipeline {
 		stage('Docker Run') {
 			steps {
 				script{
-					sh 'docker run --network=network_jenkins -d -p 80:8080 token-docker'
+					sh 'docker run --network=network_jenkins -dit --name izicap -d -p 80:8080 token-docker'
 				}
 			}
 		}
